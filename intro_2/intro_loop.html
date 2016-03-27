@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>This is a simple JS test!</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+//		alert("Embeded javascript");
+		var cities = ["Munich", "Vienna", "Dresden"];
+		var population = [1429584, 1840573, 536308];
+		var coordinates = [
+			[48.137222, 11.575556], [48.20833, 16.373064], [51.049259, 13.73836]
+		];
+
+		var pos = 1;
+		var city = cities[pos-1];
+		var lat	= coordinates[pos-1];
+		console.log("Coordinates of " + city + " is: " + lat);
+
+		var sum = 0;
+		var lable = "";
+		for (var i = population.length - 1; i >= 0; i--) {
+		 sum += population[i];
+		 lable += cities[i];
+		 if (i > 0) {
+		 	lable += ", ";
+		 }
+		}
+
+		console.log("Sum of population of " + lable + " is: " + sum);
+	</script>
+</body>
+
+</html>
