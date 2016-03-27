@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<mata charset = "utf-8">
+	<title>This is a game test！</title>
+</head>
+<body>
+<script type="text/javascript">
+	var name = prompt("What's your name?");
+	var ects = 0;
+
+	function firstmeeting(){
+		alert(name + ", nice to meet you here!");
+		var dir = prompt("Enter this (g)ame or (l)eave");
+		if (dir == "g") {
+			choice();
+		} else {
+			goodbye();
+		}
+	}
+
+	function goodbye(){
+		alert(name + ", hope to see you next time!");
+	}
+
+	function choice(){
+		var dir = prompt(name + ", do you like coding(yes/no)?");
+		if (dir == "yes") {
+			alert("My wechat number is XXX, I hope we can disscuss more!");
+		} else {
+			alert("Sorry, have a nice day!")
+			goodbye();
+		}
+	}
+
+	firstmeeting();
+</script>
+</body>
+</html>

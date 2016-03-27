@@ -1,0 +1,14 @@
+p {
+//	margin: auto;
+//	position: absolute;
+//	border-style: dotted;
+	color : blue;
+	text-align: center;
+	word-spacing: 10px;
+	background-color: gray;
+	top: 0; left: 200; bottom: 0; right: 0;
+	padding: 20;
+	border: 2px solid navy;
+	margin: 20;
+	font-size: 11;
+}

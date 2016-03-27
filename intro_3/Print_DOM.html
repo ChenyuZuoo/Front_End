@@ -1,0 +1,41 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>DOM_mani</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="Print_DOM.css">
+</head>
+<body>
+<script type="text/javascript">
+	function printDOM(message) {
+		var p = document.createElement("p");
+		p.textContent = message;
+		document.body.appendChild(p);
+
+		return p;
+	}
+
+	printDOM("            Hello");
+//	printDOM("            world!");
+</script>
+
+<div>
+<p>this is a centralization test.</p>
+</div>
+
+<a href="https://tuwel.tuwien.ac.at">this is a link(tuwel)</a>
+
+<ol>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+</body>
+</html>
