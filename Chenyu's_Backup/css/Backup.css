@@ -1,0 +1,37 @@
+h1{
+	margin-left: 20;
+	margin-top: 20;
+}
+
+#cover-img{
+	width: 100%;
+	height: 40%;
+}
+
+/*table, th, td {
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+}*/
+
+th, td {
+	padding: 15px;
+	text-align: left;
+}
+
+table{
+	align-content: center;
+	width: 70%;
+}
+
+th{
+	background-color: #D1494E;
+	color: white;
+}
+
+/*tr:nth-child(even){
+	background-color: #DBD0A7;
+}*/
+
+/*.main {
+	background-color: #E1EED2;
+}*/
