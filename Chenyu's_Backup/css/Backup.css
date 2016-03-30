@@ -1,17 +1,55 @@
-h1{
-	margin-left: 20;
-	margin-top: 20;
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+body {
+	background-color: #fff;
 }
 
-#cover-img{
-	width: 100%;
-	height: 40%;
+/*********************************************************************************/
+/* navigator                                                                     */
+/*********************************************************************************/
+#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 100%;
+	color: #fff;
+	background: #e1eed2;
+	box-shadow: inset -0.25em 0 0.25em 0 rgba(0,0,0,0.125);
+	text-align: right;
 }
+	#header .top {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
 
-/*table, th, td {
-	border: 1px solid #ddd;
-	border-collapse: collapse;
-}*/
+		#header .navs {
+			padding-right: 1em; 
+		}
+
+	#header .bottom {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+	}
+
+		#header .icons {
+			font-size: 0.8em;
+			margin: 0 0 1em 0;
+			text-align: center;
+		}
+
+
+/*********************************************************************************/
+/* table                                                                         */
+/*********************************************************************************/
+#main .diary {
+	margin-left: 150px;
+}
 
 th, td {
 	padding: 15px;
@@ -28,10 +66,42 @@ th{
 	color: white;
 }
 
-/*tr:nth-child(even){
-	background-color: #DBD0A7;
-}*/
+/*********************************************************************************/
+/* footer                                                                        */
+/*********************************************************************************/
+#footer {
+	position: fixed;
+	bottom: 0;
+	margin-left: 242px;
+	text-align: center;
+	background-color: #cad6bd;
+	/*???how to fix padding with different screen size*/
+	padding: 1em 33.8em 1em 33.7em;
+	font-size: 0.8em;
+	box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.05), inset 0 0.1em 0.1em 0 rgba(0,0,0,0.025);
+}
 
-/*.main {
-	background-color: #E1EED2;
-}*/
+	#footer .copyright {
+		line-height: 1.25em;
+	}
+
+		#footer .copyright .p {
+			margin: 0 0 1em 0;
+		}
+
+/*********************************************************************************/
+/* main                                                                          */
+/*********************************************************************************/
+
+#main {
+	margin-left: 242;
+}
+
+	#main .poem {
+		padding-top: 5em;
+		padding-left: 3em;
+	}
+
+	#main .cite {
+		padding-left: 10em;
+	}
