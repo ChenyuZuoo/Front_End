@@ -38,7 +38,68 @@ body {
 		#header .navs {
 			padding-right: 1em;
 			list-style-type: none;
+			z-index: 100;
 		}
+
+		#nav
+		{
+		}
+
+			/* ???? how to make the hover occupy the whole sidebar
+			#nav ul li {
+				padding-left: 2em;
+			}
+
+			#nav ul li:hover {
+				background-color: #E1EED2;
+			}*/
+
+			#nav ul li a {
+				display: block;
+				padding: 0.5em 2em 0.5em 2em;
+				color: rgba(255,255,255,0.8);
+				text-decoration: none;
+				outline: none;
+				border: none;
+				-moz-transition:none;
+				-webkit-transition:none;
+				-o-transition:none;
+				-ms-transition:none;
+				transition: none;
+			}
+
+			#nav ul li a span {
+				position: relative;
+				display: block;
+				font-size: 1.2em;
+				/*border-left: 3px solid #E1EED2;*/
+			}
+
+				#nav ul li a span:before {
+					position: absolute;
+					left: 0;
+					color: #091A29;
+					text-align: center;
+					width: 1.25em;
+				}
+
+			#nav ul li a.active {
+				background: rgba(0,0,0,0.15);
+				box-shadow: inset 0 0 0.25em 0 rgba(0,0,0,0.125);
+				color: #fff;
+			}
+
+				#nav ul li a.active span {
+				}
+
+					#nav ul li a.active span:before {
+						color: #DBD0A7;
+					}
+
+			#nav ul li a span:hover {
+				visibility: visible;
+				color: #DBD0A7;
+			}
 
 	#header .bottom {
 		position: absolute;
@@ -117,6 +178,10 @@ th{
 	margin-left: 242;
 }
 
+	h2, h3, p {
+		margin-bottom: 22px;
+	}
+
 	#main .poem {
 		padding-top: 5em;
 		padding-left: 3em;
@@ -137,7 +202,7 @@ th{
 /* footer                                                                        */
 /*********************************************************************************/
 #footer {
-	/*position: absolute;*/
+	position: absolute;
 	bottom: 0px;
 	margin-left: 242px;
 	text-align: center;
