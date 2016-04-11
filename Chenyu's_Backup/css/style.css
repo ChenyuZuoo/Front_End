@@ -26,7 +26,6 @@ body {
 		width: 100%;
 	}
 
-		/*????how to make the title sink a little bit??????*/
 		#header .title {
 			font-size: 1.5em;
 			margin-top: 10px;
@@ -51,8 +50,8 @@ body {
 		{
 		}
 
-			/* ???? how to make the hover occupy the whole sidebar
-			#nav ul li {
+			/* ???? how to make the hover occupy the whole sidebar?????*/
+			/*#nav ul li {
 				padding-left: 2em;
 			}
 
@@ -163,10 +162,6 @@ body {
 				transition: color 0.35s ease-in-out;
 			}
 
-				/*#header .icons s:hover {
-					color: #fff;
-				}*/
-
 	#logo {
 		position: relative;
 		margin: 1.75em 1.5em 1.5em 1.5em;
@@ -264,13 +259,6 @@ tr:hover {
 		margin-bottom: 22px;
 	}
 
-	#main .poem {
-		padding-top: 5em;
-		padding-left: 3em;
-		float: right;
-		margin-right: 8em;
-	}
-
 	h1 {
 		font-size: 14px;
 	}
@@ -280,6 +268,19 @@ tr:hover {
 		padding-bottom: 0.5em;
 	}
 
+	#main .poem {
+		padding-top: 5em;
+		padding-left: 3em;
+		float: right;
+		margin-right: 8em;
+	}
+
+	/*??? how to make the picture centered ???*/
+	#main #container a {
+		display: block;
+		margin-left: 30px;
+	}
+
 	#header .title {
 		font-family: Georgia;
 	}
@@ -287,6 +288,7 @@ tr:hover {
 	#nav span {
 		font-family: Palatino Linotype;
 	}
+
 
 /*	#main .cite {
 		padding-left: 10em;
