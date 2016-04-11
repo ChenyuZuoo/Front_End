@@ -26,10 +26,16 @@ body {
 		width: 100%;
 	}
 
+		/*????how to make the title sink a little bit??????*/
 		#header .title {
 			font-size: 1.5em;
-			margin-top: 10%;
+			margin-top: 10px;
 		}
+
+			#header .title div{
+				margin-top: 10px;
+				padding-top: 10px;
+			}
 
 		#header .portrait {
 			float: left;
@@ -272,6 +278,14 @@ tr:hover {
 	table caption {
 		font-size: 28px;
 		padding-bottom: 0.5em;
+	}
+
+	#header .title {
+		font-family: Georgia;
+	}
+
+	#nav span {
+		font-family: Palatino Linotype;
 	}
 
 /*	#main .cite {
