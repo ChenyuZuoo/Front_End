@@ -196,7 +196,7 @@ body {
 #main .diary {
 	margin-left: 15%;
 	margin-top: 5%;
-	/*position: absolute;*/
+	position: relative;
 }
 
 table{
@@ -208,13 +208,43 @@ table{
 th, td {
 	padding: 12px;
 	text-align: left;
-	border: 1px solid #123555; 
+	border: 1px solid white;
+	/*border-radius: 10px;*/
 }
 
+/*ridus border*/
+th:first-child {
+	border-top-left-radius: 13px;
+}
+
+th:last-child {
+	border-top-right-radius: 13px;
+}
+
+tr:last-child td:first-child {
+	border-bottom-left-radius: 13px;
+}
+
+tr:last-child td:last-child {
+	border-bottom-right-radius: 13px;
+}
+
+/*colour setting*/
 th{
-	background-color: #D1494E;
+	background-color: #D1494E ;
 	color: white;
 }
+
+td {
+	background-color: rgba(225,238,210,0.8);
+}
+
+/*hover setting*/
+tr:hover {
+	background-color: #E69B03;
+}
+
+
 
 /*********************************************************************************/
 /* main                                                                          */
@@ -237,6 +267,11 @@ th{
 
 	h1 {
 		font-size: 14px;
+	}
+
+	table caption {
+		font-size: 28px;
+		padding-bottom: 0.5em;
 	}
 
 /*	#main .cite {
