@@ -238,13 +238,21 @@ th{
 	color: white;
 }
 
-td {
+/*??? how to apply gradient on table???*/
+tr:nth-child(odd) {
 	background-color: rgba(225,238,210,0.8);
+	/*background-color: -webkit-linear-gradient(to bottom, #E1EED2 80%, #DBD0A7 80%, #E69B03 80%);
+	background-color: -moz-linear-gradient(to bottom, #E1EED2 80%, #DBD0A7 80%, #E69B03 80%);
+	background-color: linear-gradient(to bottom, #E1EED2 80%, #DBD0A7 80%, #E69B03 80%);*/
+}
+
+tr:nth-child(even) {
+	background-color: rgba(219,208,167,0.6);
 }
 
 /*hover setting*/
 tr:hover {
-	background-color: #E69B03;
+	background-color: rgba(230,155,3,0.5);
 }
 
 
@@ -320,8 +328,10 @@ tr:hover {
 		-moz-transition: 1s;
 		transition: 1s;
 		z-index: 1;
+		width: 25%;
 	}
 
+	/*define the action of hover*/
 	.pics img:hover {
 		-webkit-transform:rotate(0deg);
 		-moz-transform:rotate(0deg);
@@ -333,6 +343,8 @@ tr:hover {
 		z-index: 2;
 	}
 
+
+	/*position each picture*/
 		.pics .pic1 {
 			top: 40%;
 			left: 70%;
@@ -342,8 +354,8 @@ tr:hover {
 		}
 
 		.pics .pic2 {
-			top: -30%;
-			left: 10%;
+			top: -20%;
+			left: 20%;
 			-webkit-transform: rotate(-10deg);
 			-moz-transform: rotate(-10deg);
 			transform: rotate(-10deg);
@@ -431,7 +443,7 @@ tr:hover {
 
 		.pics .pic13 {
 			top: 40%;
-			left: -5%;
+			left: 5%;
 			-webkit-transform: rotate(-10deg);
 			-moz-transform: rotate(-10deg);
 			transform: rotate(-10deg);
@@ -473,3 +485,24 @@ tr:hover {
 		#footer .copyright .p {
 			margin: 0 0 1em 0;
 		}
+/***********************************************************************************/
+footer {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	font-family: Palatino Linotype;
+	background-color: #E1EED2;
+	margin-left: 250;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 
+	box-shadow: 10px -10px 25px 0px rgba(0,0,0,0.15);
+	display: block;
+	text-align: center;
+}
+
+	footer p {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
