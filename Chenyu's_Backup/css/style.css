@@ -61,7 +61,7 @@ body {
 
 			#nav ul li a {
 				display: block;
-				padding: 0.5em 2em 0.5em 2em;
+				padding: 0.5em 0.5em 0.5em 2em;
 				color: rgba(255,255,255,0.65);
 				text-decoration: none;
 				outline: none;
@@ -77,6 +77,7 @@ body {
 				position: relative;
 				display: block;
 				font-size: 1.2em;
+				padding-right: 4px;
 				/*border-left: 3px solid #E1EED2;*/
 			}
 
@@ -104,6 +105,7 @@ body {
 			#nav ul li a span:hover {
 				visibility: visible;
 				color: #E1EED2;
+				border-right: 2.5px solid #E1EED2;
 				-moz-transition:color 0.35s ease-in-out;
 				-o-transition: color 0.35s ease-in-out;
 				-webkit-transition:color 0.35s ease-in-out;
@@ -289,11 +291,159 @@ tr:hover {
 		font-family: Palatino Linotype;
 	}
 
+	table caption {
+		font-family: Comic Sans MS;
+	}
+
 
 /*	#main .cite {
 		padding-left: 10em;
 		float: right;
 	}*/
+
+/*********************************************************************************/
+/* pictures                                                                      */
+/*********************************************************************************/
+.pics {
+	width: 80%;
+	height: 60%;
+	margin: 10% auto;
+	position: relative;
+}
+
+	.pics img {
+		padding: 10px 10px 15px;
+		background: #fff;
+		border: 1px solid #DBD0A7;
+		position: absolute;
+		-webkit-transition: 1s;
+		-moz-transition: 1s;
+		transition: 1s;
+		z-index: 1;
+	}
+
+	.pics img:hover {
+		-webkit-transform:rotate(0deg);
+		-moz-transform:rotate(0deg);
+		transform: (0deg);
+		-webkit-transform:scale(1.5);
+		-moz-transform:scale(1.5);
+		transform: scale(1.5);
+		box-shadow: 15px 15px 20px rgba(50,50,50,0.4);
+		z-index: 2;
+	}
+
+		.pics .pic1 {
+			top: 40%;
+			left: 70%;
+			-webkit-transform: rotate(15deg);
+			-moz-transform: rotate(15deg);
+			transform: rotate(15deg);
+		}
+
+		.pics .pic2 {
+			top: -30%;
+			left: 10%;
+			-webkit-transform: rotate(-10deg);
+			-moz-transform: rotate(-10deg);
+			transform: rotate(-10deg);
+		}
+
+		.pics .pic3 {
+			top: 20%;
+			left: 45%;
+			-webkit-transform: rotate(-15deg);
+			-moz-transform: rotate(-15deg);
+			transform: rotate(-15deg);
+		}
+
+		.pics .pic4 {
+			top: -20%;
+			left: 70%;
+			-webkit-transform: rotate(30deg);
+			-moz-transform: rotate(30deg);
+			transform: rotate(30deg);
+		}
+
+		/*.pics .pic5 {
+			top: -10%;
+			left: 50%;
+			-webkit-transform: rotate(8deg);
+			-moz-transform: rotate(25deg);
+			transform: rotate(8deg);
+		}*/
+
+		.pics .pic6 {
+			top: -30%;
+			left: 45%;
+			-webkit-transform: rotate(15deg);
+			-moz-transform: rotate(15deg);
+			transform: rotate(15deg);
+		}
+
+		/*.pics .pic7 {
+			top: 30%;
+			left: 5%;
+			-webkit-transform: rotate(25deg);
+			-moz-transform: rotate(25deg);
+			transform: rotate(25deg);
+		}
+
+		.pics .pic8 {
+			top: 10%;
+			left: -10%;
+			-webkit-transform: rotate(-5deg);
+			-moz-transform: rotate(-5deg);
+			transform: rotate(-5deg);
+		}
+
+		.pics .pic9 {
+			top: 45%;
+			left: 20%;
+			-webkit-transform: rotate(2deg);
+			-moz-transform: rotate(2deg);
+			transform: rotate(2deg);
+		}*/
+
+		.pics .pic10 {
+			top: 20%;
+			left: 25%;
+			-webkit-transform: rotate(40deg);
+			-moz-transform: rotate(40deg);
+			transform: rotate(40deg);
+		}
+
+		.pics .pic11 {
+			top: -40%;
+			left: 80%;
+			-webkit-transform: rotate(-5deg);
+			-moz-transform: rotate(-5deg);
+			transform: rotate(-5deg);
+		}
+
+		.pics .pic12 {
+			top: -25%;
+			left: -5%;
+			-webkit-transform: rotate(25deg);
+			-moz-transform: rotate(25deg);
+			transform: rotate(25deg);
+		}
+
+		.pics .pic13 {
+			top: 40%;
+			left: -5%;
+			-webkit-transform: rotate(-10deg);
+			-moz-transform: rotate(-10deg);
+			transform: rotate(-10deg);
+		}
+
+		.pics .pic14 {
+			top: 15%;
+			left: -10%;
+			-webkit-transform: rotate(2deg);
+			-moz-transform: rotate(2deg);
+			transform: rotate(2deg);
+		}
 
 /*********************************************************************************/
 /* footer                                                                        */
