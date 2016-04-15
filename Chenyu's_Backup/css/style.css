@@ -374,6 +374,11 @@ pre {
     padding-bottom: 0;		
     padding-left: 2em;
     font-family: Andale Mono;
+    background-image: url('images/310px-R_logo.svg.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    /*background-attachment: fixed;*/
+    background-size: 40px;
 }
 	pre .string {
 		color: #D1494E;
