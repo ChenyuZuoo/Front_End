@@ -3,6 +3,7 @@
 /*********************************************************************************/
 body {
 	background-color: #fff;
+	margin: 0;
 }
 
 /*********************************************************************************/
@@ -18,6 +19,7 @@ body {
 	background: #123555 url('images/overlay.png');
 	box-shadow: inset -0.25em 0 0.25em 0 rgba(0,0,0,0.125);
 	text-align: right;
+	/*box-shadow: 10px 10px 5px #888888;*/
 }
 	#header .top {
 		position: absolute;
@@ -41,7 +43,8 @@ body {
 		}
 
 		#header .navs {
-			padding-right: 1em;
+			padding-right: 0em;
+			padding-left: 0em;
 			list-style-type: none;
 			z-index: 100;
 		}
@@ -50,18 +53,9 @@ body {
 		{
 		}
 
-			/* ???? how to make the hover occupy the whole sidebar?????*/
-			/*#nav ul li {
-				padding-left: 2em;
-			}
-
-			#nav ul li:hover {
-				background-color: #E1EED2;
-			}*/
-
 			#nav ul li a {
 				display: block;
-				padding: 0.5em 0.5em 0.5em 2em;
+				padding: 0.5em 1.5em 0.5em 2em;
 				color: rgba(255,255,255,0.65);
 				text-decoration: none;
 				outline: none;
@@ -81,13 +75,13 @@ body {
 				/*border-left: 3px solid #E1EED2;*/
 			}
 
-				#nav ul li a span:before {
+			/*	#nav ul li a span:before {
 					position: absolute;
 					left: 0;
 					color: #091A29;
 					text-align: center;
 					width: 1.25em;
-				}
+				}*/
 
 			/*#nav ul li a.active {
 				background: rgba(0,0,0,0.15);
@@ -105,6 +99,7 @@ body {
 			#nav ul li a span:hover {
 				visibility: visible;
 				color: #E1EED2;
+				/*background-color: #fff;*/
 				border-right: 2.5px solid #E1EED2;
 				-moz-transition:color 0.35s ease-in-out;
 				-o-transition: color 0.35s ease-in-out;
@@ -193,6 +188,64 @@ body {
 			top: 0;
 		}
 
+
+/*********************************************************************************/
+/* back to top nav                                                               */
+/*********************************************************************************/
+.rocket{
+	position: fixed;
+	bottom: 5em;
+	right: 2.5em;
+	padding: 0;
+	margin: 0;
+	padding-bottom: 5px;
+	
+	/*background: #000000;*/
+}
+
+	.rocket a {
+		color: rgba(230,155,3,0.7);
+		color: rgba(18,53,85,0.7);
+		text-decoration: none;
+		outline: none;
+		border: none;
+		-moz-transition:none;
+		-webkit-transition:none;
+		-o-transition:none;
+		-ms-transition:none;
+		transition: none;
+	}
+
+		.rocket a:hover {
+			color: #123555;
+			-moz-transition:color 0.35s ease-in-out;
+			-o-transition: color 0.35s ease-in-out;
+			-webkit-transition:color 0.35s ease-in-out;
+			-ms-transition:color 0.35s ease-in-out;
+			transition: color 0.35s ease-in-out;
+		}
+
+.totop {
+	position: fixed;
+	bottom: 3em;
+	right: 0em;
+	padding: 0;
+	margin: 1em;
+	/*background: #000000;*/
+}
+
+	.totop a {
+		color: #E69B03;
+		text-decoration: none;
+		outline: none;
+		border: none;
+		-moz-transition:none;
+		-webkit-transition:none;
+		-o-transition:none;
+		-ms-transition:none;
+		transition: none;
+	}
+
 /*********************************************************************************/
 /* table                                                                         */
 /*********************************************************************************/
@@ -241,9 +294,9 @@ th{
 /*??? how to apply gradient on table???*/
 tr:nth-child(odd) {
 	background-color: rgba(225,238,210,0.8);
-	/*background-color: -webkit-linear-gradient(to bottom, #E1EED2 80%, #DBD0A7 80%, #E69B03 80%);
+	background-color: -webkit-linear-gradient(to bottom, #E1EED2 80%, #DBD0A7 80%, #E69B03 80%);
 	background-color: -moz-linear-gradient(to bottom, #E1EED2 80%, #DBD0A7 80%, #E69B03 80%);
-	background-color: linear-gradient(to bottom, #E1EED2 80%, #DBD0A7 80%, #E69B03 80%);*/
+	background-color: linear-gradient(to bottom, #E1EED2 80%, #DBD0A7 80%, #E69B03 80%);
 }
 
 tr:nth-child(even) {
@@ -255,17 +308,21 @@ tr:hover {
 	background-color: rgba(230,155,3,0.5);
 }
 
-
-
 /*********************************************************************************/
 /* main                                                                          */
 /*********************************************************************************/
 
-#main {
-	margin-left: 242;
+#main_index {
+	margin-left: 250px;
 }
 
-	h2, h3, p {
+#main {
+	margin-left: 280px;
+	margin-right: 30px;
+	margin-top: 10px;
+}
+
+	h2, h3, h4, h5,p {
 		margin-bottom: 22px;
 	}
 
@@ -286,9 +343,10 @@ tr:hover {
 	}
 
 	/*??? how to make the picture centered ???*/
-	#main #container a {
+	#main .container a img{
+		text-align: center;
 		display: block;
-		margin-left: 30px;
+		margin-left: 130px;
 	}
 
 	#header .title {
@@ -303,15 +361,32 @@ tr:hover {
 		font-family: Comic Sans MS;
 	}
 
+/*********************************************************************************/
+/* blogs                                                                         */
+/*********************************************************************************/
+pre {
+	background-color: #F9F9F9;
+    border: 1px dashed #2F6FAB;
+    color: black;
+    line-height: 1.1em;
+    padding: 1em;
+    padding-top: 0;
+    padding-bottom: 0;		
+    padding-left: 2em;
+    font-family: Andale Mono;
+}
+	pre .string {
+		color: #D1494E;
+	}
 
-/*	#main .cite {
-		padding-left: 10em;
-		float: right;
-	}*/
+	pre .number {
+		color: #6698FF;
+	}
 
 /*********************************************************************************/
 /* pictures                                                                      */
 /*********************************************************************************/
+
 .pics {
 	width: 80%;
 	height: 60%;
@@ -345,6 +420,14 @@ tr:hover {
 
 
 	/*position each picture*/
+		.pics .pic0 {
+			top: 10%;
+			left: 10%;
+			-webkit-transform: rotate(15deg);
+			-moz-transform: rotate(15deg);
+			transform: rotate(15deg);
+		}
+
 		.pics .pic1 {
 			top: 40%;
 			left: 70%;
@@ -457,36 +540,11 @@ tr:hover {
 			transform: rotate(2deg);
 		}
 
+
 /*********************************************************************************/
 /* footer                                                                        */
 /*********************************************************************************/
-#footer {
-	position: absolute;
-	bottom: 0px;
-	margin-left: 242px;
-	text-align: center;
-	background-color: #cad6bd;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 31.7%;
-	padding-right: 31.7%;
-	/*margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 31.7%;
-	margin-right: 31.7%;*/
-	font-size: 0.8em;
-	box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.05), inset 0 0.1em 0.1em 0 rgba(0,0,0,0.025);
-}
-
-	#footer .copyright {
-		line-height: 1.25em;
-	}
-
-		#footer .copyright .p {
-			margin: 0 0 1em 0;
-		}
-/***********************************************************************************/
-footer {
+.footer_fixed {
 	position: fixed;
 	bottom: 0;
 	right: 0;
@@ -502,7 +560,28 @@ footer {
 	text-align: center;
 }
 
-	footer p {
+	.footer_fixed p {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+.footer_bottom {
+	/*position: fixed;*/
+	bottom: 0;
+	right: 0;
+	left: 0;
+	font-family: Palatino Linotype;
+	background-color: #E1EED2;
+	margin-left: 250;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 
+	box-shadow: 10px -10px 25px 0px rgba(0,0,0,0.15);
+	display: block;
+	text-align: center;
+}
+
+	.footer_bottom p {
 		margin-top: 5px;
 		margin-bottom: 5px;
 	}
