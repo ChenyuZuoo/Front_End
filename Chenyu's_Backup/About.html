@@ -5,7 +5,16 @@
 	<title>Chenyu's Script</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<meta name="viewport" content="initial-scale=1.0">
+	<style type="text/css">
+	#map {
+		width: 75%;
+		height: 800px;
+	}
+</style>
 </head>
+
 <body>
 <div id ="header" class="panel">
 	<div class="top">
@@ -38,9 +47,31 @@
 <div id="main">
 	<p>
 		coming soon.<br>
-		A map will be here.
-	</p>
+		A map will be here.	</p>
 </div>
+
+
+<div id="map">
+</div>
+
+<script>
+	var mapOptions = {
+		center: { lat: 35.2, lng: 75.4 },
+		zoom: 3
+	};
+
+	var mapEl = document.getElementById('map');
+	var map = new google.maps.Map(mapEl, mapOptions);
+
+	// You can start working with your map here
+	var pos = {lat: 48.196857, lng: 16.370766};
+var marker = new google.maps.Marker({
+position: pos,
+map: map,
+title: "Lecture Room EI5"
+});
+
+</script>
 
 <footer class="footer_fixed">
 	<div class="copyright">
