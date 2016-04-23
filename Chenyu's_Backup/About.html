@@ -10,7 +10,7 @@
 	<style type="text/css">
 	#map {
 		width: 75%;
-		height: 800px;
+		height: 75%;
 	}
 </style>
 </head>
@@ -45,33 +45,126 @@
 </div>
 
 <div id="main">
-	<p>
+	<!-- <p>
 		coming soon.<br>
-		A map will be here.	</p>
+		A map will be here.	</p> -->
+		<h2>Education background</h2>
 </div>
 
 
 <div id="map">
 </div>
 
-<script>
-	var mapOptions = {
-		center: { lat: 35.2, lng: 75.4 },
-		zoom: 3
-	};
+    <script>
 
-	var mapEl = document.getElementById('map');
-	var map = new google.maps.Map(mapEl, mapOptions);
+      function initMap() {
+        var pos_WHU = {lat: 30.5360, lng: 114.3643};
+		var pos_TUM = {lat: 48.1497, lng: 11.5679};
+		var pos_TUW = {lat: 48.1987, lng: 16.3685};
 
-	// You can start working with your map here
-	var pos = {lat: 48.196857, lng: 16.370766};
-var marker = new google.maps.Marker({
-position: pos,
-map: map,
-title: "Lecture Room EI5"
-});
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: { lat: 40.2, lng: 60.4 }
+        });
 
-</script>
+        var lable_WHU = "WHU";
+        var lable_TUM = "TUM";
+        var lable_TUW = "TUW";
+
+        var contentString_WHU = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">WUHAN UNIVERSITY</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Bachelor&nbsp;(09.2010&nbsp;-&nbsp;06.2014)</b><br> Major: Remote Sensing Science and Technology<br>' +
+            'Thesis: Radiometric Correction of Satellite Images Based on Hyperspectral Data' +
+            '<p><b>Research Assistant &nbsp;(07.2014&nbsp;-&nbsp;04.2015)</b><br><br>' +
+            'Home page: <a href="http://en.whu.edu.cn/" target = "_blank">'+
+            'http://en.whu.edu.cn/</a> '+
+            '</div>'+
+            '</div>';
+        var contentString_TUM = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">TECHNISCHE UNIVERSITÄT MÜNCHEN</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Master&nbsp;(10.2015&nbsp;-&nbsp;present)</b><br> Major: Cartography<br>' +
+            'Home page: <a href="http://www.cartographymaster.eu/" target = "_blank">'+
+            'http://www.cartographymaster.eu/</a> '+
+            '</div>'+
+            '</div>';
+        var contentString_TUW = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">VIENNA UNIVERSITY OF TECHNOLOGY</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Master&nbsp;(03.2016&nbsp;-&nbsp;present)</b>&nbsp;exchange<br> Major: Cartography<br>' +
+            'Home page: <a href="http://cartography.tuwien.ac.at/" target = "_blank">'+
+            'http://cartography.tuwien.ac.at/</a> '+
+            '</div>'+
+            '</div>';
+
+        var infowindow_WHU = new google.maps.InfoWindow({
+          content: contentString_WHU,
+          maxWidth: 250
+        });
+        var infowindow_TUM = new google.maps.InfoWindow({
+          content: contentString_TUM
+        });
+        var infowindow_TUW = new google.maps.InfoWindow({
+          content: contentString_TUW
+        });
+
+        var marker_WHU = new google.maps.Marker({
+        	position: pos_WHU,
+        	map: map,
+        	title: "WUHAN UNIVERSITY",
+        	lable: lable_WHU
+        });
+        var marker_TUM = new google.maps.Marker({
+        	position: pos_TUM,
+        	map: map,
+        	title: "TECHNISCHE UNIVERSITÄT MÜNCHEN"
+        });
+        var marker_TUW = new google.maps.Marker({
+        	position: pos_TUW,
+        	map: map,
+        	title: "VIENNA UNIVERSITY OF TECHNOLOGY"
+        });
+
+
+        marker_WHU.addListener('click', function() {
+          infowindow_WHU.open(map, marker_WHU);
+        });
+        marker_TUM.addListener('click', function() {
+          infowindow_TUM.open(map, marker_TUM);
+        });
+        marker_TUW.addListener('click', function() {
+          infowindow_TUW.open(map, marker_TUM);
+        });
+
+  //       add path
+		var path = [
+			{lat: 30.5360, lng: 114.3643},
+			{lat: 48.1497, lng: 11.5679},
+			{lat: 48.1987, lng: 16.3685}
+		];
+
+		var path_route = new google.maps.Polyline({
+			path: path,
+			geodesic: true,
+			strokeColor: "#123555",
+			strokeOpacity: 0.7,
+			strokeWeight: 2
+		});
+
+		path_route.setMap(map);
+
+       }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAsAgUkaw3pE9rdm4UAjx9MZ8opymQBwI&callback=initMap">
+    </script>
 
 <footer class="footer_fixed">
 	<div class="copyright">
