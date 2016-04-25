@@ -251,8 +251,9 @@ body {
 /*********************************************************************************/
 #main .diary {
 	margin-left: 15%;
-	margin-top: 5%;
+	margin-top: 1%;
 	position: relative;
+	margin-bottom: 5%;
 }
 
 table{
