@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<head>
+<title></title>
+
+<script src="http://maps.googleapis.com/maps/api/js?libraries=geometry"></script>
+
+<style type="text/css">
+#map {
+    width: 512px;
+    height: 512px;
+    margin-left: 50%;
+    margin-top: -365px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- ######################################################################### -->
+<!-- TODO: set up the video player (your video ID, width / height & parameters -->
+<!-- see https://developers.google.com/youtube/player_parameters#Manual_IFrame_Embeds -->
+<!-- ######################################################################### -->
+
+<!-- <iframe id="player" width="400" height="300" src="http://www.youtube.com/embed/vwtYTPCIy6k?autoplay=0&controls=1&loop=0&showinfo=0&modestbranding=1&fs=0&rel=0&playlist=vwtYTPCIy6k&enablejsapi=1" frameborder="0" allowfullscreen></iframe> -->
+<iframe id="player" width="560" height="315" src="http://www.youtube.com/embed/o3_d0fyTPNQ?autoplay=0&controls=1&loop=0&showinfo=0&modestbranding=1&fs=0&rel=0&playlist=vwtYTPCIy6k&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/bl5Rak52iss" frameborder="0" allowfullscreen></iframe> -->
+
+<p id="timer">initializing...</p>
+
+<div id="map">
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+// this script uses the Youtube JS iframe API
+// see https://developers.google.com/youtube/iframe_api_reference
+
+var player = null,
+    duration = 0;
+
+var outputEl = document.getElementById("timer");
+
+// ------------------------ set up map content ------------------------
+var mapOptions = {
+    center: { lat: 44.1162988, lng: 15.2229273 },
+    zoom: 16
+};
+var mapEl = document.getElementById('map');
+var map = new google.maps.Map(mapEl, mapOptions);
+
+var coords = [
+    {lat: 44.1182838, lng: 15.2209593},
+    {lat: 44.117589, lng: 15.219548},
+    {lat: 44.1168238, lng: 15.2202873},
+    {lat: 44.1145881, lng: 15.223406}
+];
+  
+var path = new google.maps.Polyline({
+    path: coords,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2,
+    map: map
+});
+
+var marker = new google.maps.Marker({
+    position: coords[0],
+    map: map 
+});
+
+// ------------------------ main program for animation ------------------------
+
+var DURATION = 180000;
+
+var length = google.maps.geometry.spherical.computeLength(path.getPath().getArray()),
+    startTime = Date.now();
+
+var pos = 0;
+
+var interpolator = gPolyInterpolator(path);
+
+// this is called once the youtube API is fully loaded
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+// this is called once the player is set up
+// we can start interacting with the player now...
+function onPlayerReady(event) {
+    outputEl.textContent = "ready";
+    // start animation
+    frame();
+    frame_map();
+}
+
+// this function is called every time the players state changes
+function onPlayerStateChange(event) {
+    // ############################################################
+    // TODO: you could update your page to reflect the player state
+    // ############################################################
+    if (event.data == YT.PlayerState.PLAYING) {
+        console.log("playing");
+    }
+    if (event.data == YT.PlayerState.PAUSED) {
+        console.log("paused");
+    }
+    // ...
+}
+
+// our main animation function
+// will be called repeatedly after the plyaer is ready
+function frame() {
+    var state = player.getPlayerState();
+    if (state == YT.PlayerState.PLAYING || state == YT.PlayerState.PAUSED) {
+        if (duration == 0) {
+            duration = player.getDuration();
+        }
+        // ############################################################
+        // TODO: update your animated map to reflect the video position
+        // ############################################################
+        outputEl.textContent = player.getCurrentTime() + " of " + duration;
+    }
+    if (state == YT.PlayerState.PLAYING) {
+        frame_map();
+    }
+    // var time = Date.now() - startTime;
+    // if (time > DURATION) {
+    //     // stop (no new animation frame is requested
+    //     return;
+    // }
+    
+    // var pos = length * time / DURATION;
+    
+    // var coords = interpolator(pos);
+    
+    // marker.setPosition(coords);
+    
+    window.requestAnimationFrame(frame);
+}
+
+function frame_map() {
+    var time = Date.now() - startTime;
+    if (time > DURATION) {
+        // stop (no new animation frame is requested
+        return;
+    }
+    
+    var pos = length * time / DURATION;
+    
+    var coords = interpolator(pos);
+    
+    marker.setPosition(coords);
+    
+    // window.requestAnimationFrame(frame);
+}
+
+// returns a function to interpolate along a google maps polyline / polygon 
+function gPolyInterpolator(poly) {
+    if (!google.maps.geometry.spherical) {
+        console.error("This function requires the google.maps.geometry.spherical library!");
+        console.error("Load it as described at https://developers.google.com/maps/documentation/javascript/libraries");
+        return null;
+    }
+    
+    var path = poly.getPath();
+    
+    return function(distance) {
+    
+        var numVertices = path.getLength();
+    
+        if (distance <= 0) return path.getAt(0);
+        if (numVertices < 2) return path.getAt(0);
+        
+        var distNext = 0,
+            distLast = 0;
+        
+        for (var i=1; (i < numVertices && distNext < distance); i++) {
+            distLast = distNext;
+            distNext += google.maps.geometry.spherical.computeDistanceBetween(path.getAt(i), path.getAt(i-1));
+        }
+        if (distNext < distance) {
+            return path.getAt(numVertices-1);
+        }
+        
+        var alpha = (distance-distLast)/(distNext-distLast);
+        
+        return google.maps.geometry.spherical.interpolate(path.getAt(i-2), path.getAt(i-1), alpha);
+    }
+}
+</script>
+
+</body>
